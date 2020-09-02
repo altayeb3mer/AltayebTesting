@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainActivity"
+    android:background="@color/colorBackground"
+    android:id="@+id/container">
+
+    <include layout="@layout/public_toolbar"
+        android:id="@+id/toolbar"/>
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:spanCount="1"
+        tools:itemCount="15"
+        tools:listitem="@layout/q_items"
+        android:layout_below="@+id/toolbar"
+
+        android:layoutAnimation="@anim/layout_animation"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+/>
+
+
+    <LinearLayout
+        android:layout_below="@+id/toolbar"
+        android:id="@+id/progressLay"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:clickable="true"
+        android:focusable="true">
+        <com.wang.avi.AVLoadingIndicatorView
+            android:id="@+id/avi"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:visibility="visible"
+            app:indicatorColor="@color/colorAccent"
+            app:indicatorName="BallClipRotatePulseIndicator" />
+    </LinearLayout>
+    <TextView
+        android:visibility="gone"
+        android:id="@+id/notFound"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:text="No item found"/>
+
+</RelativeLayout>
